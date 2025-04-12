@@ -9,12 +9,10 @@
     --light-background: #f8f9fa;
     --card-background: rgba(255, 255, 255, 0.8);
     --border-radius: 12px;
-    --border-radius-sm: 8px;
     --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     --box-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-light) 100%);
+
   }
   
   * {
