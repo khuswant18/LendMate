@@ -8,39 +8,29 @@ import OptionSection from './Pages/OptionSection/OptionSection'
 import BorrowerSection from './Pages/BorroweSection/BorrowerSection'
 import LenderSection from './Pages/LenderSection/LenderSection'
 
- 
-const router =  createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path:'/',
-    element:<Layout/>, 
-    children:[
+    path: '/',
+    element: <Layout />,
+    children: [
       {
-        path:'',
-        element:<Home/>
+        path: '',
+        element: <Home />
       },
       {
-        path:'/option',
-        element:<OptionSection/>,
-        children:[
-          {
-            path:'/borrower',
-            element:<BorrowerSection/>
-          },
-          {
-            path:'/lender',
-            element:<LenderSection/>
-          }
-
-        ]
+        path: 'option',
+        element: <OptionSection />,
+      },
+      {
+        path: 'borrower', 
+        element: <BorrowerSection/>
       }
-
     ]
   }
-])
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>
-  </StrictMode>,
-) 
-                                    
+    <RouterProvider router={router} />
+  </StrictMode>
+);
