@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'borrower', 
         element: <BorrowerSection/>
+      },
+      {
+        path: 'lender', 
+        element: <LenderSection/>
       }
     ]
   }
