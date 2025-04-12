@@ -4,17 +4,6 @@
     overflow: hidden;
   }
   
-  .how-it-works::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 90% 10%, rgba(76, 201, 240, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 10% 90%, rgba(247, 37, 133, 0.05) 0%, transparent 40%);
-    pointer-events: none;
-  }
   
   .process-container {
     display: flex;
@@ -51,15 +40,17 @@
     align-items: center;
     justify-content: center;
     margin-right: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   .borrower-icon {
-    background: var(--gradient-primary);
+    background: white;
+    border: 1px solid black;
   }
   
   .investor-icon {
-    background: var(--gradient-accent);
+    background: white;
+    border: 1px solid black;
   }
   
   .process-title {
@@ -70,17 +61,6 @@
   
   .process-steps {
     position: relative;
-  }
-  
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 24px;
-    width: 2px;
-    background-color: var(--primary-color);
-    opacity: 0.2;
   }
   
   .process-column:nth-child(2) .process-steps::before {
@@ -100,7 +80,7 @@
   .step-number {
     width: 50px;
     height: 50px;
-    background-color: var(--primary-color);
+    background-color: black;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -110,19 +90,8 @@
     font-size: 1.2rem;
     margin-right: 20px;
     z-index: 1;
-    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
     transition: var(--transition);
-  }
-  
-  .process-column:nth-child(2) .step-number {
-    background-color: var(--accent-color);
-    box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
-  }
-  
-  .process-step:hover .step-number {
-    transform: scale(1.1);
-  }
-  
+  }   
   .step-content {
     flex: 1;
     padding-top: 5px;
@@ -164,9 +133,5 @@
       width: 40px;
       height: 40px;
       font-size: 1rem;
-    }
-    
-    .process-steps::before {
-      left: 19px;
     }
   }
