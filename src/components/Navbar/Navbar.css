@@ -104,36 +104,3 @@
     background-color: #333;
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
-    .navbar-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      flex-direction: column;
-      background-color: white;
-      padding: 1rem 2rem;
-      display: none;
-    }
-  
-    .navbar-menu.active {
-      display: flex;
-    }
-  
-    .navbar-toggle {
-      display: flex;
-    }
-  
-    .navbar-links {
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-  
-    .navbar-buttons {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-  

@@ -1,33 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router';
 
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll); 
-    };
-  }, []);
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className='navbar'>
       <div className="container navbar-container">
         <div className="navbar-logo">
           <a href="/">
@@ -35,20 +14,14 @@ function Navbar() {
           </a>
         </div>
         
-        <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+        <div className='navbar-menu'>
           <ul className="navbar-links">
-            <li><NavLink to="/how-it-works">Get Started</NavLink></li>
+            <li><NavLink to="/OptionSection">Get Started</NavLink></li>
           </ul>
           <div className="navbar-buttons">
             <a href="/login" className="btn btn-outline">Login</a>
           </div>
         </div>
-        
-        <button className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </button>
       </div>
     </nav>
   );

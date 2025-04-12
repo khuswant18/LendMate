@@ -6,9 +6,9 @@ function Layout() {
   return (
     <>
     <Navbar/>
-    <Outlet/>
+    <Outlet/> 
     </>
   )
 }
 
-export default Layout
+export default Layout 

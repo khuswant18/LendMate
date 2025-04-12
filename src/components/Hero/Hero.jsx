@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import { NavLink } from 'react-router-dom';
 
 
 function Hero() {
@@ -14,7 +15,7 @@ function Hero() {
           <p>A transparent, community-trusted peer-to-peer lending platform for inclusive finance.</p>
 
           <div className="hero-buttons">
-            <a href="/investor" className="btn btn-secondary">Get Started</a>
+            <NavLink to="/option" className="btn btn-secondary">Get Started</NavLink>
           </div>
 
           <div className="hero-stats">
