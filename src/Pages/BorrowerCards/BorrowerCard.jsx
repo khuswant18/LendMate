@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./BorrowerCard.css";
+import { NavLink } from "react-router-dom";
 
 const borrowersData = [
   {
@@ -93,14 +94,6 @@ const BorrowerDirectory = () => {
     setFilteredBorrowers(result);
   }, [selectedCategory]);
 
-  const handleInvest = (borrower) => {
-    alert(
-      `You're investing in ${
-        borrower.name
-      }'s loan of ₹${borrower.loanAmount.toLocaleString()}`
-    );
-  };
-
   return (
     <div className="borrower-directory">
       <header className="directory-header">
@@ -163,12 +156,9 @@ const BorrowerDirectory = () => {
                     </span>
                   </div>
                 </div>
-                <button
-                  className="invest-button"
-                  onClick={() => handleInvest(borrower)}
-                >
+                <NavLink to="/borrowerProfile" className="invest-button">
                   Invest Now
-                </button>
+                </NavLink>
               </div>
             </div>
           ))

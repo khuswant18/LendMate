@@ -8,6 +8,7 @@ import OptionSection from './Pages/OptionSection/OptionSection'
 import BorrowerSection from './Pages/BorrowerSection/BorrowerSection'
 import LenderSection from './Pages/LenderSection/LenderSection'
 import BorrowerCards from './Pages/BorrowerCards/BorrowerCard'
+import BorrowerProfile from './Pages/BorrowerProfile/BorrowerProfile'
 
 
   
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:'borrowerCard',
         element:<BorrowerCards/>
+      },
+      {
+        path:'borrowerProfile',
+        element:<BorrowerProfile/>
       }
       
       
