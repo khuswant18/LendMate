@@ -1,31 +1,61 @@
-import React from 'react'
-import './Navbar.css'
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 import { NavLink } from 'react-router';
 
+
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-      <div className="header">
-        <header className="header-content">
-
-          <a href="#logo" className="logo">
-            <span className="logo-text">Study<span className='verse'>Verse </span> </span>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container navbar-container">
+        <div className="navbar-logo">
+          <a href="/">
+            <span className="logo-text">Lending<span className="logo-highlight">Kat</span></span>
           </a>
-
-          <nav className="nav">
-            <NavLink to="" className="nav-link">Home</NavLink>
-          </nav>
-
-          <a href="#contact" className="contact-button">
-            Contact Us
-          </a>
-
-          <button type="button" className="menu-button">
-            <img src="./images/Hamburger.svg" alt="menu-icon" className="menu-icon" />
-          </button>
-
-        </header>
+        </div>
+        
+        <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+          <ul className="navbar-links">
+            <li><NavLink to="/how-it-works">How It Works</NavLink></li>
+            <li><NavLink to="/features">Features</NavLink></li>
+            <li><NavLink to="/testimonials">Success Stories</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
+          </ul>
+          <div className="navbar-buttons">
+            <a href="/login" className="btn btn-outline">Login</a>
+            <a href="/signup" className="btn">Sign Up</a>
+          </div>
+        </div>
+        
+        <button className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
       </div>
-  )
+    </nav>
+  );
 }
 
 export default Navbar;
