@@ -11,9 +11,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 10%, rgba(76, 201, 240, 0.03) 0%, transparent 30%),
-              radial-gradient(circle at 90% 90%, rgba(247, 37, 133, 0.03) 0%, transparent 30%);
-  pointer-events: none;
 }
 
 .impact-stats {
@@ -56,12 +53,9 @@
 
 .stat-item h3 {
   font-size: 2.5rem;
-  color: var(--primary-color);
   margin-bottom: 5px;
-  background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
 }
 
 .stat-item p {
@@ -80,14 +74,12 @@
 
 .tab-btn {
   background: none;
+  color: white;
   border: none;
   padding: 10px 20px;
   margin: 0;
-}
-
-.tab-btn.active {
   background-color: #007bff;
-  color: white;
+
 }
 
 .testimonials-grid {

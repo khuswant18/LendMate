@@ -22,7 +22,7 @@ function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll); 
     };
   }, []);
 
@@ -37,10 +37,7 @@ function Navbar() {
         
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul className="navbar-links">
-            <li><NavLink to="/how-it-works">How It Works</NavLink></li>
-            <li><NavLink to="/features">Features</NavLink></li>
-            <li><NavLink to="/testimonials">Success Stories</NavLink></li>
-            <li><NavLink to="/about">About Us</NavLink></li>
+            <li><NavLink to="/how-it-works">Get Started</NavLink></li>
           </ul>
           <div className="navbar-buttons">
             <a href="/login" className="btn btn-outline">Login</a>
