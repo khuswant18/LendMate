@@ -1,0 +1,290 @@
+/* BorrowerDirectory.css */
+
+/* Main container */
+.borrower-directory {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+  }
+  
+  /* Header styles */
+  .directory-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .directory-header h1 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .subheading {
+    font-size: 16px;
+    color: #6c757d;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* Filter section */
+  .filter-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Category filter chips */
+  .category-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+  
+  .filter-chip {
+    background-color: #f1f3f5;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .filter-chip:hover {
+    background-color: #e9ecef;
+  }
+  
+  .filter-chip.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* Advanced filters */
+  .advanced-filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .advanced-filters {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .advanced-filters {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-group label {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .filter-group select,
+  .search-box input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .filter-group input[type="range"] {
+    width: 100%;
+  }
+  
+  /* Borrowers grid */
+  .borrowers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .borrowers-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .borrowers-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Borrower card */
+  .borrower-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .borrower-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .borrower-photo {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .borrower-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .borrower-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .borrower-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .borrower-description {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  
+  .borrower-location {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+  }
+  
+  .location-icon {
+    margin-right: 5px;
+  }
+  
+  /* Loan details */
+  .loan-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    border-top: 1px solid #e9ecef;
+    padding-top: 15px;
+  }
+  
+  .loan-amount,
+  .loan-term,
+  .interest-rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  .value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .highlight {
+    color: #27ae60;
+  }
+  
+  /* Invest button */
+  .invest-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+  }
+  
+  .invest-button:hover {
+    background-color: #2980b9;
+  }
+  
+
+  .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-results h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .no-results p {
+    margin: 0;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  /* Scrollbar styling for filter chips */
+  .category-filters::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .category-filters::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .category-filters::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+  
+  .category-filters::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  

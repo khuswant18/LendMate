@@ -171,7 +171,7 @@ const LenderSection = () => {
               </div>
 
               {/* NavLink for Submit button */}
-              <NavLink to="/submit" className="submit-button">
+              <NavLink to="/borrowerCard" className="submit-button">
                 Submit
               </NavLink>
             </form>
