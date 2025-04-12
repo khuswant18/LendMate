@@ -7,8 +7,8 @@ function OptionSection() {
     <section className="option">
       <div className="option-container">
         <div className="option-content">
-          <h1>Lending Made Human: Empowering Borrowers, Assuring Investors</h1>
-          <p>A transparent, community-trusted peer-to-peer lending platform for inclusive finance.</p>
+          <h1>Transforming lending into a trusted partnership empowering borrowers ,while enabling lenders to invest securely.</h1>
+          <p>Unlock your financial journey by choosing the path that best fits your goals.</p>
 
           <div className="option-buttons">
             <NavLink to="/borrower" className="borrower-btn">Be a Borrower</NavLink>
@@ -22,4 +22,3 @@ function OptionSection() {
 }
 
 export default OptionSection;
-4
