@@ -5,7 +5,7 @@ const borrowersData = [
   {
     id: 1,
     name: "Priya Sharma",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img01.png",
     description: "Needs a loan to buy facial kits for her beauty parlor setup.",
     location: "Jharkhand",
     loanAmount: 80000,
@@ -16,7 +16,7 @@ const borrowersData = [
   {
     id: 2,
     name: "Rajesh Kumar",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img02.png",
     description:
       "Expanding his organic vegetable farm with modern irrigation systems.",
     location: "Punjab",
@@ -28,7 +28,7 @@ const borrowersData = [
   {
     id: 3,
     name: "Meena Patel",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img03.png",
     description:
       "Pursuing a master's degree in Computer Science to improve career prospects.",
     location: "Gujarat",
@@ -40,7 +40,7 @@ const borrowersData = [
   {
     id: 4,
     name: "Arjun Singh",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img04.png",
     description:
       "Starting a small textile manufacturing unit employing local artisans.",
     location: "Rajasthan",
@@ -52,7 +52,7 @@ const borrowersData = [
   {
     id: 5,
     name: "Lakshmi Devi",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img05.png",
     description:
       "Expanding her dairy farm with two more cows to increase milk production.",
     location: "Karnataka",
@@ -64,7 +64,7 @@ const borrowersData = [
   {
     id: 6,
     name: "Mohammed Farhan",
-    photo: "/placeholder.svg?height=150&width=150",
+    photo: "./img06.png",
     description:
       "Opening a mobile repair shop after completing technical certification.",
     location: "Maharashtra",
