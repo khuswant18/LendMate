@@ -77,9 +77,10 @@ const StarRating = ({ rating }) => {
 
 const BorrowerProfile = () => {
   const [investmentAmount, setInvestmentAmount] = useState("")
+  const [investmentConfirmed, setInvestmentConfirmed] = useState(false)
 
   const handleInvest = () => {
-    alert(`You are investing ₹${investmentAmount || borrowerData.amountSought} in ${borrowerData.businessName}`)
+    setInvestmentConfirmed(true)
   }
 
   const selectAmount = (amount) => {
@@ -90,7 +91,6 @@ const BorrowerProfile = () => {
 
   return (
     <div className="borrower-profile">
-
       <div className="hero-section">
         <div className="profile-content">
           <h1>{borrowerData.businessName}</h1>
@@ -104,9 +104,6 @@ const BorrowerProfile = () => {
 
       <div className="main-content">
         <div className="left-column">
-
-
-
           <div className="ratings-section">
             <div className="rating-header">
               <div className="rating-stars">
@@ -179,36 +176,42 @@ const BorrowerProfile = () => {
               </div>
             </div>
 
-            <div className="investment-form">
-              <div className="amount-input-container">
-                <input
-                  type="text"
-                  className="amount-input"
-                  placeholder="Enter Amount"
-                  value={investmentAmount}
-                  onChange={(e) => setInvestmentAmount(e.target.value.replace(/\D/g, ""))}
-                />
-                <button className="amount-submit">✓</button>
+            {investmentConfirmed ? (
+              <div className="confirmation-message">
+                <div className="tick-icon">✓</div>
+                <p className="confirmation-text">Thank you for your support!</p>
+                <p className="confirmation-review">You can check updates under “My Investments” tab.</p>
               </div>
+            ) : (
+              <div className="investment-form">
+                <div className="amount-input-container">
+                  <input
+                    type="text"
+                    className="amount-input"
+                    placeholder="Enter Amount"
+                    value={investmentAmount}
+                    onChange={(e) => setInvestmentAmount(e.target.value.replace(/\D/g, ""))}
+                  />
+                  <button className="amount-submit">✓</button>
+                </div>
 
-              <div className="quick-amounts">
-                <button className="quick-amount-btn" onClick={() => selectAmount(1000)}>+ ₹1000</button>
-                <button className="quick-amount-btn" onClick={() => selectAmount(5000)}>+ ₹5000</button>
-                <button className="quick-amount-btn" onClick={() => selectAmount(10000)}>+ ₹10000</button>
+                <div className="quick-amounts">
+                  <button className="quick-amount-btn" onClick={() => selectAmount(1000)}>+ ₹1000</button>
+                  <button className="quick-amount-btn" onClick={() => selectAmount(5000)}>+ ₹5000</button>
+                  <button className="quick-amount-btn" onClick={() => selectAmount(10000)}>+ ₹10000</button>
+                </div>
+
+                <button className="invest-button" onClick={handleInvest}>Invest Now</button>
+
+                <div className="verification-tag">
+                  <span className="verification-icon">✓</span>
+                  Verified by community reviewers
+                </div>
               </div>
-
-              <button className="invest-button" onClick={handleInvest}>Invest Now</button>
-
-              <div className="verification-tag">
-                <span className="verification-icon">✓</span>
-                Verified by community reviewers
-              </div>
-            </div>
-
+            )}
           </div>
         </div>
       </div>
-
     </div>
   )
 }
