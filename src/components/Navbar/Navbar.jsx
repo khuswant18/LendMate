@@ -10,7 +10,7 @@ function Navbar() {
       <div className="container navbar-container">
         <div className="navbar-logo">
           <a href="/">
-            <span className="logo-text">Lending<span className="logo-highlight">Kat</span></span>
+            <span className="logo-text">Lend<span className="logo-highlight">Mate</span></span>
           </a>
         </div>
         
