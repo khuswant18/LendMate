@@ -1,12 +1,3 @@
-import React from 'react'
-
-function LenderSection() {
-  return (
-    <div>LenderSection</div>
-  )
-}
-
-export default LenderSection
 "use client";
 
 import { useState } from "react";
