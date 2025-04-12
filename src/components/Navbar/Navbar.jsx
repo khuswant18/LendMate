@@ -41,7 +41,6 @@ function Navbar() {
           </ul>
           <div className="navbar-buttons">
             <a href="/login" className="btn btn-outline">Login</a>
-            <a href="/signup" className="btn">Sign Up</a>
           </div>
         </div>
         
