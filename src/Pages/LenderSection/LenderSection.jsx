@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom"; // Make sure to import NavLink
+import { NavLink } from "react-router-dom"; 
 import "./LenderSection.css";
 
 const LenderSection = () => {
@@ -23,7 +23,7 @@ const LenderSection = () => {
       [name]: value,
     });
 
-    // Clear error when field is being edited
+
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -65,7 +65,7 @@ const LenderSection = () => {
             <form>
               <div className="form-group">
                 <label htmlFor="businessName">
-                  Business Name <span className="required">*</span>
+                  Name <span className="required">*</span>
                 </label>
                 <input
                   type="text"
@@ -170,7 +170,7 @@ const LenderSection = () => {
                 ></textarea>
               </div>
 
-              {/* NavLink for Submit button */}
+
               <NavLink to="/borrowerCard" className="submit-button">
                 Submit
               </NavLink>

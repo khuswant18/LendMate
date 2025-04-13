@@ -34,7 +34,7 @@ const borrowerData = {
     {
       id: 1,
       name: "Rajiv M.",
-      avatar: "https://randomuser.me/api/portraits/men/11.jpg",
+      avatar: "./review-img1.png",
       rating: 5,
       date: "March 2023",
       text: "She repaid on time every month. Great experience!",
@@ -42,7 +42,7 @@ const borrowerData = {
     {
       id: 2,
       name: "Priya K.",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      avatar: "review-img2.png",
       rating: 5,
       date: "January 2023",
       text: "Very transparent and easy to reach out to. Happy to help her again.",
@@ -50,7 +50,7 @@ const borrowerData = {
     {
       id: 3,
       name: "Suresh T.",
-      avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+      avatar: "review-img3.png",
       rating: 4,
       date: "November 2022",
       text: "Good communication throughout the loan period. Reliable borrower.",

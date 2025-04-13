@@ -16,7 +16,7 @@ function Navbar() {
         
         <div className='navbar-menu'>
           <ul className="navbar-links">
-            <li><NavLink to="/OptionSection">Get Started</NavLink></li>
+            <li><NavLink to="/option">Get Started</NavLink></li>
           </ul>
           <div className="navbar-buttons">
             <a href="/login" className="btn btn-outline">Login</a>

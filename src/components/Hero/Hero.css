@@ -18,6 +18,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: fadeIn 1.6s ease-in-out  forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0
+
+    }
+    to {
+      opacity: 1
+    }
+
   }
   
   .badge {
@@ -49,11 +61,15 @@
   
   .hero-buttons {
     margin-bottom: 40px;
+    animation: fadeIn 2s ease-in-out  forwards;
+
   } 
   
   .hero-stats {
     display: flex;
     gap: 40px;
+    animation: fadeIn 2s ease-in-out  forwards;
+
   }
   
   .stat-item {

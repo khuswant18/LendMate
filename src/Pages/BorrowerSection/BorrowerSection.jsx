@@ -234,9 +234,6 @@ const BorrowerSection = () => {
         </section>
 
         <section className="cta-section">
-          <a href="/success-stories" className="secondary-button">
-            Want to see how others have succeeded? Check out success stories.
-          </a>
         </section>
       </main>
 
