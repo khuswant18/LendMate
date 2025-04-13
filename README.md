@@ -11,6 +11,7 @@ We believe that financial inclusion should not be limited to a select few. Every
 ### 1. Inclusive Eligibility
 - **Broad Access:** We configure our platform to accept all borrowers who meet our inclusive eligibility criteria and quality check standards, ensuring no one is left behind.
 - **Quality Assurance:** By maintaining strict quality control, we create a trustworthy environment for both borrowers and lenders.
+- **Review:**Our website provides review from the reputated personalities that have a special designation
 
 ### 2. Transparent, Community-Driven Trust System
 - **Enhanced Credibility:** Borrower profiles showcase a range of trust signals beyond conventional credit scores.
