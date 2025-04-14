@@ -75,12 +75,12 @@ const borrowersData = [
     categories: ["Small Business", "First Time Borrowers"],
   },
 ];
-
+ 
 const filterCategories = ["All", "Women", "First Time Borrowers"];
 
-const BorrowerDirectory = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [filteredBorrowers, setFilteredBorrowers] = useState(borrowersData);
+const BorrowerDirectory = () => { 
+  const [selectedCategory, setSelectedCategory] = useState("All"); 
+  const [filteredBorrowers, setFilteredBorrowers] = useState(borrowersData); 
 
   useEffect(() => {
     let result = [...borrowersData];
