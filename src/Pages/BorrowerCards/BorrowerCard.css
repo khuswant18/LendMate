@@ -225,9 +225,10 @@
     color: #27ae60;
   }
   
-  /* Invest button */
   .invest-button {
     background-color: #3498db;
+    text-decoration: none;
+    text-align: center;
     color: white;
     border: none;
     border-radius: 4px;
@@ -236,7 +237,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    width: 100%;
+    width: 100%; 
   }
   
   .invest-button:hover {
@@ -265,7 +266,6 @@
     color: #6c757d;
   }
   
-  /* Scrollbar styling for filter chips */
   .category-filters::-webkit-scrollbar {
     height: 4px;
   }
