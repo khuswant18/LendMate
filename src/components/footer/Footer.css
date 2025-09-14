@@ -1,0 +1,11 @@
+.site-footer{background:#f8f9fa;border-top:1px solid #eef1f5;margin-top:64px}
+.site-footer__inner{max-width:1200px;margin:0 auto;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.site-footer__brand{display:flex;flex-direction:column}
+.site-footer__logo{font-weight:800;font-size:20px;color:#0f172a}
+.site-footer__logo-accent{color:#3B82F6}
+.site-footer__tag{color:#6c757d;font-size:14px;margin-top:4px}
+.site-footer__links{display:flex;gap:24px}
+.site-footer__link{color:#4361ee;text-decoration:none;font-weight:600}
+.site-footer__link:hover{color:#0e37eb}
+.site-footer__copy{text-align:center;color:#6c757d;font-size:14px;padding:8px 20px 24px}
+@media (max-width:640px){.site-footer__inner{justify-content:center;text-align:center}.site-footer__brand{align-items:center}}

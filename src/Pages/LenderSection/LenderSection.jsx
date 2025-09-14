@@ -225,19 +225,6 @@ const LenderSection = () => {
           </div>
         </section>
       </main>
-
-      <footer className="lk-footer">
-        <div className="footer-content">
-          <p>
-            &copy; {new Date().getFullYear()} Lending Kat. All rights reserved.
-          </p>
-          <div className="footer-links">
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
