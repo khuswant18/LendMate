@@ -81,18 +81,20 @@ const filterCategories = ["All", "Women", "First Time Borrowers"];
 const BorrowerDirectory = () => { 
   const [selectedCategory, setSelectedCategory] = useState("All"); 
   const [filteredBorrowers, setFilteredBorrowers] = useState(borrowersData); 
+  const [Loading,setLoading]=useState(false);  
 
   useEffect(() => {
-    let result = [...borrowersData];
-
-    if (selectedCategory !== "All") {
+    setTimeout(() => {
+      setLoading(false)
+      let result = [...borrowersData]; 
+      if (selectedCategory !== "All") {
       result = result.filter((borrower) =>
         borrower.categories.includes(selectedCategory)
       );
     }
-
     setFilteredBorrowers(result);
-  }, [selectedCategory]);
+  }, 2000);
+}, [selectedCategory]); 
 
   return (
     <div className="borrower-directory">
@@ -115,7 +117,7 @@ const BorrowerDirectory = () => {
                 }`}
                 onClick={() => setSelectedCategory(category)}
               >
-                {category}
+                {category} 
               </button>
             ))}
           </div>

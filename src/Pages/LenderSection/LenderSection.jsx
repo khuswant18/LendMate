@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { NavLink } from "react-router-dom"; 
+import { useState} from "react";
+import { NavLink, useNavigate } from "react-router-dom"; 
 import "./LenderSection.css";
 
 const LenderSection = () => {
@@ -15,6 +15,34 @@ const LenderSection = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading,setLoading]=useState(false);
+  const navigate = useNavigate();
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.businessName.trim()) {
+      newErrors.businessName = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    } 
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit phone number";
+    }
+
+    if (!formData.investmentRange) {
+      newErrors.investmentRange = "Please select an investment range";
+    }
+
+    return newErrors;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,12 +51,27 @@ const LenderSection = () => {
       [name]: value,
     });
 
-
-    if (errors[name]) {
+    if (errors) {
       setErrors({
         ...errors,
         [name]: "",
-      });
+      }); 
+    }
+  }; 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      setLoading(true);
+      console.log("Form submitted successfully:", formData);
+
+      setTimeout(()=>{
+        navigate("/borrowerCard");
+      },2000)
     }
   };
 
@@ -46,9 +89,9 @@ const LenderSection = () => {
           </a>
           <a href="#" className="lk-nav-button">
             Login
-          </a>
+          </a> 
         </nav>
-      </header>
+      </header> 
 
       <main>
         <section className="lender-hero">
@@ -62,7 +105,7 @@ const LenderSection = () => {
           <div className="form-container">
             <h2>Lender Information</h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="businessName">
                   Name <span className="required">*</span>
@@ -77,7 +120,7 @@ const LenderSection = () => {
                 />
                 {errors.businessName && (
                   <span className="error-message">{errors.businessName}</span>
-                )}
+                )} 
               </div>
 
               <div className="form-group">
@@ -107,12 +150,12 @@ const LenderSection = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={errors.phone ? "error" : ""}
+                  className={errors.phone ? "error" : ""} 
                 />
                 {errors.phone && (
                   <span className="error-message">{errors.phone}</span>
                 )}
-              </div>
+              </div> 
 
               <div className="form-group">
                 <label htmlFor="investmentRange">
@@ -166,14 +209,18 @@ const LenderSection = () => {
                   name="motivation"
                   value={formData.motivation}
                   onChange={handleChange}
-                  rows="4"
+                  rows={4}
                 ></textarea>
               </div>
 
+              <button 
+              type="submit" 
+              className="submit-button"
+              disabled={loading}
 
-              <NavLink to="/borrowerCard" className="submit-button">
-                Submit
-              </NavLink>
+              >
+                {loading ? "Submitting..." : "Submit"}
+              </button> 
             </form>
           </div>
         </section>
