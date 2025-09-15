@@ -15,7 +15,7 @@ function Hero() {
           <p>A transparent, community-trusted peer-to-peer lending platform for inclusive finance.</p>
 
           <div className="hero-buttons">
-            <NavLink to="/option" className="btn btn-secondary">Get Started</NavLink>
+            <NavLink to="/signup" className="btn btn-secondary">Get Started</NavLink>
           </div>
 
           <div className="hero-stats">

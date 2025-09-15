@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 
 function Navbar() {
@@ -16,10 +16,10 @@ function Navbar() {
         
         <div className='navbar-menu'>
           <ul className="navbar-links">
-            <li><NavLink to="/option">Get Started</NavLink></li>
+            <li><NavLink to="/signup">Get Started</NavLink></li>
           </ul>
           <div className="navbar-buttons">
-            <a href="/login" className="btn btn-outline">Login</a>
+            <NavLink to="/login" className="btn btn-outline">Login</NavLink>
           </div>
         </div>
       </div>
