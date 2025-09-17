@@ -10,7 +10,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      const res = await fetch(`${API_URL}/api/auth/logi`, {
+      const res = await fetch(`${API_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
