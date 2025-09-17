@@ -9,8 +9,8 @@ import BorrowerSection from './Pages/BorrowerSection/BorrowerSection'
 import LenderSection from './Pages/LenderSection/LenderSection'
 import BorrowerCards from './Pages/BorrowerCards/BorrowerCard'
 import BorrowerProfile from './Pages/BorrowerProfile/BorrowerProfile'
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
+import Signup from './Pages/Signup/Signup'
+import Login from './Pages/Login/Login'
 
   
 const router = createBrowserRouter([

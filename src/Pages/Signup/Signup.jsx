@@ -21,7 +21,6 @@ const Signup = () => {
       if (res.ok) {
         navigate('/login');
       } else {
-        // Handle error (show message)
         alert('Signup failed. Please try again.');
       }
     } catch (err) {
