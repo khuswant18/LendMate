@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Auth/auth.css';
 import { Link, useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      const res = await fetch('http://localhost:3000/api/v1/auth/login', {
+      const res = await fetch(`${API_URL}/api/auth/logi`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

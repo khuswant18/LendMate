@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Auth/auth.css';
 import { Link, useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      const res = await fetch('http://localhost:3000/api/v1/auth/signup', {
+      const res = await fetch(`${API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
