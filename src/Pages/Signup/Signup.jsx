@@ -4,10 +4,28 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Replace with real backend signup then navigate on success
-    navigate('/option');
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+      if (res.ok) {
+        navigate('/login');
+      } else {
+        // Handle error (show message)
+        alert('Signup failed. Please try again.');
+      }
+    } catch (err) {
+      alert('Network error. Please try again.');
+    }
   };
 
   return (
@@ -20,17 +38,17 @@ const Signup = () => {
         <form className="auth-form" onSubmit={onSubmit}>
           <div className="auth-field">
             <label htmlFor="name">Full name</label>
-            <input id="name" type="text" placeholder="Jane Doe" required />
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required />
           </div>
 
           <div className="auth-field">
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" required />
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
           </div>
 
           <div className="auth-field">
             <label htmlFor="password">Password</label>
-            <input id="password" type="password" placeholder="Create a strong password" required />
+            <input id="password" name="password" type="password" placeholder="Create a strong password" required />
           </div>
 
           <div className="auth-actions">

@@ -1,11 +1,31 @@
 import React from 'react';
 import '../Auth/auth.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const onSubmit = (e) => {
+  const navigate = useNavigate();
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Call your backend login then navigate (if desired)
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (res.ok) {
+  const data = await res.json();
+  localStorage.setItem('jwt', data.token);
+  navigate('/option');
+      } else {
+        alert('Login failed. Please check your credentials.');
+      }
+    } catch (err) {
+      alert('Network error. Please try again.');
+    }
   };
 
   return (
@@ -18,12 +38,12 @@ const Login = () => {
         <form className="auth-form" onSubmit={onSubmit}>
           <div className="auth-field">
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" required />
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
           </div>
 
           <div className="auth-field">
             <label htmlFor="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" required />
+            <input id="password" name="password" type="password" placeholder="••••••••" required />
           </div>
 
           <div className="auth-actions">
