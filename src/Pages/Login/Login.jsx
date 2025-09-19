@@ -27,7 +27,7 @@ const Login = () => {
             console.log(data)
             localStorage.setItem('jwt', data.token);
             if (data.role === 'BORROWER') {
-              navigate('/borrower');
+              navigate('/borrower-form');
             } else if (data.role === 'LENDER') {
               navigate('/dashboard');
             } else {

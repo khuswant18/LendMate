@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       //   element: <OptionSection />,
       // },
       {
-        path: 'borrower',
+        path: 'borrower-form',
         element: <BorrowerSection />,
       },
       // {
