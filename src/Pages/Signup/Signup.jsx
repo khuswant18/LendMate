@@ -31,7 +31,6 @@ const Signup = () => {
   return (
     <section className="auth-wrapper">
       <div className="auth-card">
-        <div className="auth-chip">Peer‑to‑Peer Lending</div>
         <h1 className="auth-title">Create your account</h1>
         <p className="auth-subtitle">Join LendMate to borrow or invest with confidence</p>
 

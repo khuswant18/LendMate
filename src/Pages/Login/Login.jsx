@@ -32,7 +32,6 @@ const Login = () => {
   return (
     <section className="auth-wrapper">
       <div className="auth-card">
-        <div className="auth-chip">Secure Access</div>
         <h1 className="auth-title">Welcome back</h1>
         <p className="auth-subtitle">Log in to continue your LendMate journey</p>
 
