@@ -30,20 +30,20 @@ const router = createBrowserRouter([
         path: 'login',
         element: <Login />,
       },
-      {
-        path: 'option',
-        element: <OptionSection />,
-      },
+      // {
+      //   path: 'option',
+      //   element: <OptionSection />,
+      // },
       {
         path: 'borrower',
         element: <BorrowerSection />,
       },
+      // {
+      //   path: 'lender',
+      //   element: <LenderSection />,
+      // },
       {
-        path: 'lender',
-        element: <LenderSection />,
-      },
-      {
-        path:'borrowerCard',
+        path:'dashboard',
         element:<BorrowerCards/>
       },
       {
