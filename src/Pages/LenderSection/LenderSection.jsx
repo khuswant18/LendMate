@@ -77,22 +77,6 @@ const LenderSection = () => {
 
   return (
     <div className="lender-form-container">
-      <header className="lk-header">
-        <div className="lk-logo">
-          <span className="logo-text">
-            Lending<span className="logo-highlight">Kat</span>
-          </span>
-        </div>
-        <nav className="lk-nav">
-          <a href="#" className="lk-nav-link">
-            Get Started
-          </a>
-          <a href="#" className="lk-nav-button">
-            Login
-          </a> 
-        </nav>
-      </header> 
-
       <main>
         <section className="lender-hero">
           <h1>Grow Your Business While Uplifting Others</h1>

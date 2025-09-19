@@ -112,7 +112,8 @@ const BorrowerDirectory = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800); // simulate fetch delay
+    // Align simulated load time with profile page for consistency
+    const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -142,7 +143,7 @@ const BorrowerDirectory = () => {
   return (
     <div className="borrower-directory" data-page="borrowers">
       <header className="directory-header">
-        <h1>Discover Borrowers</h1>
+        <h1>Verified Borrowers</h1>
         <p className="subheading">Curated opportunities aligned with impact and return.</p>
       </header>
 
@@ -175,7 +176,7 @@ const BorrowerDirectory = () => {
         ))}
       </div>
 
-      <section className="borrowers-grid" aria-live="polite">
+  <section className="borrowers-grid" aria-live="polite" aria-busy={loading}>
         {loading && Array.from({length:6}).map((_,i)=> <SkeletonCard key={i} />)}
         {!loading && filtered.length === 0 && (
           <div className="no-results">

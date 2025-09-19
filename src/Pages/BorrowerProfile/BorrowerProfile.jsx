@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './BorrowerProfile.css'
 
 const borrowerData = {
@@ -78,6 +78,13 @@ const StarRating = ({ rating }) => {
 const BorrowerProfile = () => {
   const [investmentAmount, setInvestmentAmount] = useState("")
   const [investmentConfirmed, setInvestmentConfirmed] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  // simulate async fetch
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 1200)
+    return () => clearTimeout(t)
+  }, [])
 
   const handleInvest = () => {
     setInvestmentConfirmed(true)
@@ -88,6 +95,72 @@ const BorrowerProfile = () => {
   }
 
   const fundingProgress = (borrowerData.totalFunded / borrowerData.amountSought) * 100
+
+  if (loading) {
+    return (
+      <div className="borrower-profile" aria-busy="true" aria-live="polite">
+        <div className="hero-skeleton" />
+        <div className="main-content" style={{ marginTop: '2.25rem' }}>
+          <div className="left-column profile-skeleton-wrap" style={{ flex: 1 }}>
+            <div className="skeleton-block">
+              <div className="skeleton-line lg" style={{ width: '42%' }} />
+              <div className="skeleton-gap" />
+              <div className="skeleton-line sm" style={{ width: '60%' }} />
+              <div className="skeleton-line sm" style={{ width: '48%' }} />
+              <div className="skeleton-gap" />
+              <div className="skeleton-pills">
+                <div className="skeleton-pill" />
+                <div className="skeleton-pill" />
+                <div className="skeleton-pill" />
+              </div>
+            </div>
+            <div className="skeleton-block">
+              <div className="skeleton-line md" style={{ width: '38%' }} />
+              <div className="skeleton-stack" style={{ marginTop: '.65rem' }}>
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="skeleton-line sm" style={{ width: `${75 - i * 5}%` }} />
+                ))}
+              </div>
+            </div>
+            <div className="skeleton-block">
+              <div className="skeleton-line md" style={{ width: '55%' }} />
+              <div className="skeleton-stack" style={{ marginTop: '.9rem' }}>
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i} className="skeleton-line text" style={{ height: 10, width: `${95 - i * 15}%` }} />
+                ))}
+                <div className="skeleton-line text" style={{ height: 10, width: '70%' }} />
+              </div>
+            </div>
+          </div>
+          <div className="right-column" style={{ minWidth: 0 }}>
+            <div className="skeleton-block compact" style={{ position: 'sticky', top: '5.25rem' }}>
+              <div className="skeleton-line lg" style={{ width: '65%' }} />
+              <div className="skeleton-gap" />
+              <div className="skeleton-flex">
+                <div className="skeleton-line sm" style={{ width: '40%' }} />
+                <div className="skeleton-line sm" style={{ width: '28%' }} />
+              </div>
+              <div className="skeleton-gap" />
+              <div className="skeleton-progress" />
+              <div className="skeleton-gap" />
+              <div className="skeleton-line sm" style={{ width: '58%' }} />
+              <div className="skeleton-gap" />
+              <div className="skeleton-invest">
+                <div className="skeleton-line md" style={{ width: '70%' }} />
+                <div className="skeleton-flex">
+                  <div className="skeleton-line xs" style={{ width: '30%' }} />
+                  <div className="skeleton-line xs" style={{ width: '25%' }} />
+                  <div className="skeleton-line xs" style={{ width: '35%' }} />
+                </div>
+                <div className="skeleton-cta" />
+                <div className="skeleton-line xs" style={{ width: '60%' }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="borrower-profile">
@@ -111,7 +184,7 @@ const BorrowerProfile = () => {
                 <span className="rating-value">{borrowerData.rating}</span>
                 <span className="rating-count">({borrowerData.reviewCount} ratings)</span>
               </div>
-              <div className="community-label">One of the most trusted borrowers on Lending Kat</div>
+              <div className="community-label">One of the most trusted borrowers on Lending Mate</div>
             </div>
           </div>
 

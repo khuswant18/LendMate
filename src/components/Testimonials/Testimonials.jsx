@@ -7,19 +7,19 @@ function Testimonials() {
     {
       name: 'Priya Sharma',
       role: 'Small Business Owner',
-      quote: 'Lending Kat helped me expand my tailoring business when traditional banks wouldn\'t even consider my application. The community trust system made all the difference.',
+      quote: 'Lending Mate helped me expand my tailoring business when traditional banks wouldn\'t even consider my application. The community trust system made all the difference.',
       type: 'borrower'
     },
     {
       name: 'Rajesh Kumar',
       role: 'Farmer',
-      quote: 'I needed funds for modern irrigation equipment. Through Lending Kat, I connected with investors who believed in my vision for sustainable farming.',
+      quote: 'I needed funds for modern irrigation equipment. Through Lending Mate, I connected with investors who believed in my vision for sustainable farming.',
       type: 'borrower'
     },
     {
       name: 'Anita Desai',
       role: 'Investor',
-      quote: 'I\'ve been investing through Lending Kat for over a year. The transparency is unmatched, and knowing my money is helping real people makes all the difference.',
+      quote: 'I\'ve been investing through Lending Mate for over a year. The transparency is unmatched, and knowing my money is helping real people makes all the difference.',
       type: 'investor'
     },
     {

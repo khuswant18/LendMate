@@ -46,7 +46,7 @@ function ProblemSolution() {
           
           <div className="solution-box">
             <div className="box-header">
-              <h3>How Lending Kat Solves It</h3>
+              <h3>How Lending Mate Solves It</h3>
             </div>
             <ul className="solution-list">
               <li>
