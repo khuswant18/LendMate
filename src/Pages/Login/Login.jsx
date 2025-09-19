@@ -24,10 +24,11 @@ const Login = () => {
       });
           if (res.ok) {
             const data = await res.json();
+            console.log(data)
             localStorage.setItem('jwt', data.token);
-            if (data.role === 'borrower') {
+            if (data.role === 'BORROWER') {
               navigate('/borrower');
-            } else if (data.role === 'Lender') {
+            } else if (data.role === 'LENDER') {
               navigate('/dashboard');
             } else {
               navigate('/');

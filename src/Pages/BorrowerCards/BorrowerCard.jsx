@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import "./BorrowerCard.css";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect, useMemo } from 'react';
+import './BorrowerCard.css';
+import { NavLink } from 'react-router-dom';
 
 const borrowersData = [
   {
@@ -76,100 +76,133 @@ const borrowersData = [
   },
 ];
  
-const filterCategories = ["All", "Women", "First Time Borrowers"];
+const filterCategories = ['All', 'Women', 'First Time Borrowers', 'Agriculture', 'Education', 'Small Business'];
 
-const BorrowerDirectory = () => { 
-  const [selectedCategory, setSelectedCategory] = useState("All"); 
-  const [filteredBorrowers, setFilteredBorrowers] = useState(borrowersData); 
-  const [Loading,setLoading]=useState(false);  
+const sortOptions = [
+  { value: 'amount-desc', label: 'Amount (High → Low)' },
+  { value: 'amount-asc', label: 'Amount (Low → High)' },
+  { value: 'return-desc', label: 'Return (High → Low)' },
+  { value: 'term-asc', label: 'Shortest Term' },
+];
+
+const SkeletonCard = () => (
+  <div className="skeleton-card" aria-hidden="true">
+    <div className="skeleton-line title" />
+    <div className="skeleton-line subtitle" />
+    <div className="skeleton-line text" />
+    <div className="skeleton-line text" />
+    <div className="skeleton-line text" />
+    <div className="skeleton-badges">
+      <div className="skeleton-badge" />
+      <div className="skeleton-badge" />
+    </div>
+    <div className="skeleton-chips">
+      <div className="skeleton-chip" />
+      <div className="skeleton-chip" />
+      <div className="skeleton-chip" />
+    </div>
+    <div className="skeleton-button" />
+  </div>
+);
+
+const BorrowerDirectory = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('amount-desc');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-      let result = [...borrowersData]; 
-      if (selectedCategory !== "All") {
-      result = result.filter((borrower) =>
-        borrower.categories.includes(selectedCategory)
-      );
+    const timer = setTimeout(() => setLoading(false), 800); // simulate fetch delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  const filtered = useMemo(() => {
+    let result = borrowersData.filter(b =>
+      b.name.toLowerCase().includes(search.toLowerCase()) ||
+      b.description.toLowerCase().includes(search.toLowerCase()) ||
+      b.location.toLowerCase().includes(search.toLowerCase())
+    );
+    if (selectedCategory !== 'All') {
+      result = result.filter(b => b.categories.includes(selectedCategory));
     }
-    setFilteredBorrowers(result);
-  }, 2000);
-}, [selectedCategory]); 
+    switch (sort) {
+      case 'amount-asc':
+        result.sort((a,b)=> a.loanAmount - b.loanAmount); break;
+      case 'amount-desc':
+        result.sort((a,b)=> b.loanAmount - a.loanAmount); break;
+      case 'return-desc':
+        result.sort((a,b)=> b.interestRate - a.interestRate); break;
+      case 'term-asc':
+        result.sort((a,b)=> a.loanTerm - b.loanTerm); break;
+      default: break;
+    }
+    return result;
+  }, [selectedCategory, search, sort]);
 
   return (
-    <div className="borrower-directory">
+    <div className="borrower-directory" data-page="borrowers">
       <header className="directory-header">
-        <h1>Explore Borrowers Aligned with Your Investment Goals</h1>
-        <p className="subheading">
-          Discover real people with real businesses, farms, and educational
-          pursuits.
-        </p>
+        <h1>Discover Borrowers</h1>
+        <p className="subheading">Curated opportunities aligned with impact and return.</p>
       </header>
 
-      <section className="filter-section">
-        <div className="filter-bar">
-          <div className="category-filters">
-            {filterCategories.map((category) => (
-              <button
-                key={category}
-                className={`filter-chip ${
-                  selectedCategory === category ? "active" : ""
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category} 
-              </button>
-            ))}
-          </div>
+      <div className="toolbar" role="region" aria-label="Search and sorting controls">
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search by name, use-case, location..."
+            value={search}
+            onChange={(e)=> setSearch(e.target.value)}
+            aria-label="Search borrowers"
+          />
         </div>
-      </section>
+        <div className="sort-box">
+          <select value={sort} onChange={e=> setSort(e.target.value)} aria-label="Sort borrowers">
+            {sortOptions.map(o=> <option key={o.value} value={o.value}>{o.label}</option>)}
+          </select>
+        </div>
+      </div>
 
-      <section className="borrowers-grid">
-        {filteredBorrowers.length > 0 ? (
-          filteredBorrowers.map((borrower) => (
-            <div className="borrower-card" key={borrower.id}>
-              <div className="borrower-photo">
-                <img
-                  src={borrower.photo || "/placeholder.svg"}
-                  alt={borrower.name}
-                />
-              </div>
-              <div className="borrower-info">
-                <h3>{borrower.name}</h3>
-                <p className="borrower-description">{borrower.description}</p>
-                <p className="borrower-location">
-                  <span className="location-icon">📍</span> {borrower.location}
-                </p>
-                <div className="loan-details">
-                  <div className="loan-amount">
-                    <span className="label">Loan Amount</span>
-                    <span className="value">
-                      ₹{borrower.loanAmount.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="loan-term">
-                    <span className="label">Term</span>
-                    <span className="value">{borrower.loanTerm} months</span>
-                  </div>
-                  <div className="interest-rate">
-                    <span className="label">Return</span>
-                    <span className="value highlight">
-                      up to {borrower.interestRate}% p.a.
-                    </span>
-                  </div>
-                </div>
-                <NavLink to="/borrowerProfile" className="invest-button">
-                  Invest Now
-                </NavLink>
-              </div>
-            </div>
-          ))
-        ) : (
+      <div className="category-chips" role="tablist" aria-label="Filter borrowers by category">
+        {filterCategories.map(cat => (
+          <button
+            key={cat}
+            className={`chip ${selectedCategory === cat ? 'active': ''}`}
+            onClick={()=> setSelectedCategory(cat)}
+            role="tab"
+            aria-selected={selectedCategory === cat}
+          >{cat}</button>
+        ))}
+      </div>
+
+      <section className="borrowers-grid" aria-live="polite">
+        {loading && Array.from({length:6}).map((_,i)=> <SkeletonCard key={i} />)}
+        {!loading && filtered.length === 0 && (
           <div className="no-results">
             <h3>No borrowers found</h3>
-            <p>Try adjusting your filters to see more results.</p>
+            <p>Try changing filters or search terms.</p>
           </div>
         )}
+        {!loading && filtered.map(borrower => {
+          const tags = borrower.categories.slice(0,4);
+          return (
+            <article className="borrower-card" key={borrower.id} aria-label={borrower.name}>
+              <h3>{borrower.name}</h3>
+              <small>{borrower.location}</small>
+              <p>{borrower.description}</p>
+              <ul>
+                <li><strong>₹{borrower.loanAmount.toLocaleString()}</strong>Amount</li>
+                <li><strong>{borrower.loanTerm}m</strong>Term</li>
+                <li><strong>{borrower.interestRate}%</strong>Return</li>
+                <li><strong>{Math.round(borrower.loanAmount * (1 + (borrower.interestRate/100)) ).toLocaleString()}</strong>Est. Payback</li>
+              </ul>
+              <div className="card-tags">
+                {tags.map(tag => <span key={tag} className="tag-chip">{tag}</span>)}
+              </div>
+              <NavLink to="/borrowerProfile" className="invest-button" aria-label={`Invest in ${borrower.name}`}>Invest Now →</NavLink>
+            </article>
+          );
+        })}
       </section>
     </div>
   );
